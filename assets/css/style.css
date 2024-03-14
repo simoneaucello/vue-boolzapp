@@ -228,7 +228,7 @@ img{
 /* MAIN CHAT  */
 
 .main-chat{
-  background-image: url(../img/mine.jpg);
+  background-image: url(mine.jpg);
   background-repeat: repeat;
   height: calc(100% - 170px);
 }

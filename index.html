@@ -26,7 +26,7 @@
 </head>
 <body>
 
-  <section class="wrapper">
+  <section id="app" class="wrapper">
 
     <div class="container">
       <div class=" row flexed">
@@ -35,7 +35,7 @@
         <div class="left-col flexed column">
           <div class="top-l-bar flexed">
             <div class="avatar">
-            <img src="assets/img/avatar_io.jpg" alt="io">
+            <img src="./img/avatar_io.jpg" alt="io">
             </div>
             
 
@@ -70,119 +70,24 @@
 <!-- contact list -->
           <div class="scroll flexed column">  
 
-          <div class="contact-box flexed">
+          <div 
+          v-for="contact in contacts"
+          class="contact-box flexed">
             <div class="avatar">
-            <img src="assets/img/avatar_2.jpg" alt="2">
+            <img 
+            :src="contact.avatar" 
+            :alt="contact.name">
             </div>
 
             <div class="text-card">
-            <h4>Fabio</h4>
+            <h4>{{contact.name}}</h4>
             <p>Lorem ipsum dolor sit amet</p>
             </div>
 
             <div class="hours">16:15</div>
           </div>
           
-<!-- contact card  -->
-          <div class="contact-box flexed">
-            <div class="avatar">
-            <img src="assets/img/avatar_7.jpg" alt="2">
-            </div>
 
-            <div class="text-card">
-            <h4>Samuele</h4>
-            <p>Lorem ipsum dolor sit amet</p>
-            </div>
-
-            <div class="hours">16:03</div>
-          </div>
-
-<!-- contact card  -->
-          <div class="contact-box flexed">
-            <div class="avatar">
-            <img src="assets/img/avatar_8.jpg" alt="2">
-            </div>
-
-            <div class="text-card">
-            <h4>Alessandro B.</h4>
-            <p>Lorem ipsum dolor sit amet</p>
-            </div>
-
-            <div class="hours">15:50</div>
-          </div>
-
-<!-- contact card  -->
-
-          <div class="contact-box flexed">
-            <div class="avatar">
-            <img src="assets/img/avatar_1.jpg" alt="2">
-            </div>
-
-            <div class="text-card">
-            <h4>Alessandro L.</h4>
-            <p>Lorem ipsum dolor sit amet</p>
-            </div>
-
-            <div class="hours">15:45</div>
-          </div>
-
-<!-- contact card  -->
-          <div class="contact-box flexed">
-            <div class="avatar">
-            <img src="assets/img/avatar_3.jpg" alt="2">
-            </div>
-
-            <div class="text-card">
-            <h4>Francesco</h4>
-            <p>Lorem ipsum dolor sit amet</p>
-            </div>
-
-            <div class="hours">15:40</div>
-          </div>
-
-<!-- contact card  -->
-          <div class="contact-box flexed">
-            <div class="avatar">
-            <img src="assets/img/avatar_4.jpg" alt="2">
-            </div>
-
-            <div class="text-card">
-            <h4>Federico</h4>
-            <p>Lorem ipsum dolor sit amet</p>
-            </div>
-
-            <div class="hours">15:22</div>
-          </div>
-
-<!-- contact card  -->
-          <div class="contact-box flexed">
-            <div class="avatar">
-            <img src="assets/img/avatar_5.jpg" alt="2">
-            </div>
-
-            <div class="text-card">
-            <h4>Davide</h4>
-            <p>Lorem ipsum dolor sit amet</p>
-            </div>
-
-            <div class="hours">15:15</div>
-          </div>
-
-<!-- contact card  -->
-          <div class="contact-box flexed">
-            <div class="avatar">
-            <img src="assets/img/avatar_6.jpg" alt="2">
-            </div>
-
-            <div class="text-card">
-            <h4>Claudia</h4>
-            <p>Lorem ipsum dolor sit amet</p>
-            </div>
-
-            <div class="hours">16.15</div>
-          
-<!-- contact card  -->
-          </div>    
           
           
           </div>
@@ -194,7 +99,7 @@
 
           <div class="top-r-bar flexed">
             <div class="avatar">
-              <img src="assets/img/avatar_1.jpg" alt="2">
+              <img src="./img/avatar_1.jpg" alt="2">
               </div>
   
               <div class="text-card">
