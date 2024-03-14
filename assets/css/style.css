@@ -42,11 +42,11 @@ body{
 }
 
 
-img{
+/* img{
   max-width: 100%;
   width: 60px;
   border-radius: 50%;
-}
+} */
 
 /* UTILITIES  */
 
@@ -173,12 +173,26 @@ img{
   background-color: #fff;
   align-items: center;
   padding: 5px; 
+  position: relative;
+}
+
+.avatar img{
+    /* max-width: 100%; */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+
+
+.contact-box:hover{
+  background-color: #e9e9e9;
 }
 
 
 .hours {
-  margin-left: auto;
-  margin-bottom: 25px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
   font-size: 0.8rem;
   margin-right: 0.8rem;
   color: #a0acaa;
@@ -239,16 +253,16 @@ img{
   height: 100%;    
 }
 
-.received , .send {
+.received , .sent {
   border-radius: 1rem;
   padding: 1rem 0.7rem;
   display: flex;
-  margin-bottom: rem;
+  margin-bottom: 1rem;
   max-width: 50%;
   position: relative;
 }
 
-.send {
+.sent {
   background-color: #dbf8be;    
   margin-left: auto ;
 }

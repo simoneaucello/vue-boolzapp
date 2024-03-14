@@ -71,8 +71,10 @@
           <div class="scroll flexed column">  
 
           <div 
-          v-for="contact in contacts"
-          class="contact-box flexed">
+          v-for="(contact, contactId) in contacts"
+          @click="activeChat = contactId"
+          class="contact-box flexed"
+          >
             <div class="avatar">
             <img 
             :src="contact.avatar" 
@@ -81,10 +83,10 @@
 
             <div class="text-card">
             <h4>{{contact.name}}</h4>
-            <p>Lorem ipsum dolor sit amet</p>
+            <p>{{getLastMessage(contact)}}</p>
             </div>
 
-            <div class="hours">16:15</div>
+            <div class="hours">{{getLastDate(contact)}}</div>
           </div>
           
 
@@ -99,12 +101,12 @@
 
           <div class="top-r-bar flexed">
             <div class="avatar">
-              <img src="./img/avatar_1.jpg" alt="2">
+              <img :src="contacts[activeChat].avatar" alt="2">
               </div>
-  
               <div class="text-card">
-              <h4>Michele</h4>
-              <p>Ultimo accesso oggi alle 16:26</p>
+              <h4>{{contacts[activeChat].name}}</h4>
+              <p>Ultimo accesso oggi alle {{contacts[activeChat].messages[contacts[activeChat].messages.length
+                -1].date}}</p>
               </div>
               <div class="action">
                 <i class="fa-solid fa-magnifying-glass"></i>  
@@ -120,8 +122,11 @@
           <div class="main-chat">
 
             <div class="message-box">
-              <div class="send">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia corrupti ab debitis dicta dolorum ipsa magni doloribus aperiam aspernatur magnam repellat nemo, facere aut iusto repellendus dignissimos placeat esse. Exercitationem.</p>
+              <div 
+              v-for="msgItem in contacts[activeChat].messages"
+              :class="(msgItem.status === 'sent' ? 'sent' : 'received')"
+              >
+                  <p>{{msgItem.message}} </p>
                   <div class="opt flexed column between">
                       <i class="fa-solid fa-chevron-down"></i>
                       <div class="opt-chat">
@@ -129,24 +134,12 @@
                           <div>Cancella messaggio</div>
                       </div> 
                       <div>
-                        <p>16:13</p>
+                        <p>{{msgItem.date}}</p>
                         </div>
                   </div> 
 
               </div>
-              <div class="received">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia corrupti ab debitis dicta dolorum ipsa magni doloribus aperiam aspernatur magnam repellat nemo, facere aut iusto repellendus dignissimos placeat esse. Exercitationem.</p>
-                  <div class="opt flexed column between">
-                      <i class="fa-solid fa-chevron-down"></i>
-                      <div class="opt-chat">
-                          <div>Info messaggio</div>
-                          <div>Cancella messaggio</div>
-                      </div> 
-                        <div>
-                        <p>16:15</p>
-                        </div>
-                  </div>   
-              </div>             
+                       
           </div>
           </div>
 <!-- main chat-->
