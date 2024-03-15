@@ -66,10 +66,17 @@ createApp({
       return this.contacts.filter(contact => contact.visible)
     },
 
-    searchContact(){
-      return this.contacts.filter(contact => 
-      contact.name.toLowerCase().includes(this.chatSearch.toLowerCase()));
+
+    searchContact() {
+      this.contacts.forEach(contact => {
+        if (contact.name.toLowerCase().includes(this.chatSearch.toLowerCase())) {
+          contact.visible = true
+        } else {
+          contact.visible = false
+        }
+      });
     }
+
   },
 
 
