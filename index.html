@@ -130,7 +130,7 @@
 
             <div class="message-box">
               <div 
-              v-for="message in activeChat.messages"
+              v-for="(message, index) in activeChat.messages"
               :class="message.status"
               >
                   <p>{{message.message}} </p>
@@ -139,7 +139,9 @@
                       <i class="fa-solid fa-chevron-down"></i>
                       <div class="opt-chat">
                           <div>Info messaggio</div>
-                          <div>Cancella messaggio</div>
+                          <div
+                          @click.stop="eraseMsg(index)"
+                          >Cancella messaggio</div>
                       </div> 
                       <div>
                         <p>{{message.date}}</p>

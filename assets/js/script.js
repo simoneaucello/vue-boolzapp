@@ -54,7 +54,11 @@ createApp({
       };
 
       this.activeChat.messages.push(newResponse);
-    }
+    },
+
+    eraseMsg(index) {
+      this.activeChat.messages.splice(index, 1)
+    },
 
 
   },
