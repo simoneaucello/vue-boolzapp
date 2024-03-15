@@ -61,13 +61,7 @@ createApp({
 
   computed: {
 
-    // per sistema di ricerca
-    visibleContacts(){
-      return this.contacts.filter(contact => contact.visible)
-    },
-
-
-    searchContact() {
+    visibleContacts() {
       this.contacts.forEach(contact => {
         if (contact.name.toLowerCase().includes(this.chatSearch.toLowerCase())) {
           contact.visible = true
@@ -75,6 +69,7 @@ createApp({
           contact.visible = false
         }
       });
+      return this.contacts
     }
 
   },

@@ -64,7 +64,7 @@
             <div class="search">
               <i class="fa-solid fa-magnifying-glass"></i>
               <input 
-              type="text" 
+              type="search" 
               placeholder="Cerca o inizia una nuova chat"
               v-model="chatSearch">
             </div>
@@ -78,6 +78,7 @@
 
           <div 
           v-for="contact in visibleContacts"
+          v-show="contact.visible"
           :class="{'active' : contact === activeChat} "
           @click="activeChat = contact"
           class="contact-box flexed"
