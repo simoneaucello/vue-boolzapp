@@ -60,6 +60,12 @@ createApp({
       this.activeChat.messages.splice(index, 1)
     },
 
+    optMenu(index){
+      const opt = document.querySelectorAll('.opt-chat');
+
+      opt[index].classList.toggle('hide')
+    }
+
 
   },
 

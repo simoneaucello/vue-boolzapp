@@ -37,9 +37,10 @@
 <!-- contact bar top  -->
         <div class="left-col flexed column">
           <div class="top-l-bar flexed">
-            <div class="avatar">
-            <img src="./img/avatar_io.jpg" alt="io">
-            </div>
+            <div class="avatar flexed">
+            <img src="./img/avatar_8.jpg" alt="io">
+            <h3 class="io">Simone</h3>
+          </div>
             
 
             <div class="action">
@@ -131,13 +132,16 @@
             <div class="message-box">
               <div 
               v-for="(message, index) in activeChat.messages"
-              :class="message.status"
-              >
-                  <p>{{message.message}} </p>
+              :class="message.status">
+                  <p class="message">{{message.message}} </p>
                  
                   <div class="opt flexed column between">
-                      <i class="fa-solid fa-chevron-down"></i>
-                      <div class="opt-chat">
+                      <i 
+                      @click.stop="optMenu(index)"
+                      class="fa-solid fa-chevron-down"></i>
+                      <div 
+                      
+                      class="opt-chat hide">
                           <div>Info messaggio</div>
                           <div
                           @click.stop="eraseMsg(index)"

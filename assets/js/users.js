@@ -139,8 +139,8 @@ const contacts = [
       ],
   },
   {
-      name: 'Davide',
-      avatar: './img/avatar_8.jpg',
+      name: 'Lucilla',
+      avatar: './img/avatar_io.jpg',
       visible: true,
       messages: [
           {

@@ -11,6 +11,11 @@ body{
   /* max-height: 100vh; */
 }
 
+.io{
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 16px;
+}
 
 .wrapper{
   background:linear-gradient(#099688 10%, #D6DBD8 10%);
@@ -42,11 +47,6 @@ body{
 }
 
 
-/* img{
-  max-width: 100%;
-  width: 60px;
-  border-radius: 50%;
-} */
 
 /* UTILITIES  */
 
@@ -254,8 +254,13 @@ body{
 
 .message-box {
   padding: 2rem 3rem;
-  overflow-y: auto;
+  overflow-y: scroll;
   height: 100%;    
+  width: 100%
+}
+
+.message-box p{
+  max-width: 300px;
 }
 
 .received , .sent {
@@ -263,7 +268,7 @@ body{
   padding: 1rem 0.7rem;
   display: flex;
   margin-bottom: 1rem;
-  max-width: 50%;
+  max-width: 40%;
   position: relative;
 }
 
@@ -282,20 +287,24 @@ body{
 
 .opt-chat {
   position: absolute;
-  right: 0.8rem;
-  top: 2rem;    
+  top: 2rem;     
   background-color: white;
   line-height: 2rem;
   box-shadow: 1px 1px 5px 2px #C8CAC6;
-  display: none;
   border-radius: 5px;
+  padding: 10px;
   
 }
 
-.opt:hover .opt-chat {
-  display: inline-block; 
-  padding: 10px;
+.hide{
+  display: none;
 }
+
+.message{
+  width: 500px;
+}
+
+
 
 .opt-chat div:hover {
   background-color: #C8CAC6;
@@ -316,6 +325,8 @@ color: #b2b5b7;
 
 .fa-chevron-down{
   color: #b2b5b7;
+  cursor: pointer;
+  margin-left: auto;
 }
 
 
