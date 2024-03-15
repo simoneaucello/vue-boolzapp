@@ -1,4 +1,6 @@
-import {contacts} from './users.js'
+import {contacts} from './users.js';
+
+const { DateTime } = luxon;
 
 const { createApp } = Vue;
 
@@ -8,7 +10,9 @@ createApp({
     return{
       contacts,
       activeChat: {},
-      userMessage: ''
+      userMessage: '',
+      now: {},
+      dataOra: ''
     }
   },
 
@@ -24,9 +28,12 @@ createApp({
       return lastDate ? lastDate.date : '';
     },
 
+
     sendMessage(userMessage){
       const newMsg = {
-        date: 'todo',
+        date: DateTime.now()
+        .setLocale('it')
+        .toFormat('dd/MM/yyyy hh:mm:ss') ,
         message: userMessage,
         status: 'sent'
       };
@@ -40,7 +47,9 @@ createApp({
 
     respMessage(){
       const newResponse = {
-        date: 'todo',
+        date: DateTime.now()
+        .setLocale('it')
+        .toFormat('dd/MM/yyyy hh:mm:ss') ,
         message: 'Va bene!',
         status: 'received'
       };
@@ -63,6 +72,11 @@ createApp({
 
   created(){
   this.activeChat = this.contacts[0];
+  },
+
+  mounted(){
+    this.printData();
+    console.log(printData());
   }
 
 }).mount('#app')
