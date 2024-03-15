@@ -11,8 +11,7 @@ createApp({
       contacts,
       activeChat: {},
       userMessage: '',
-      now: {},
-      dataOra: ''
+      chatSearch: '',
     }
   },
 
@@ -33,7 +32,7 @@ createApp({
       const newMsg = {
         date: DateTime.now()
         .setLocale('it')
-        .toFormat('dd/MM/yyyy hh:mm:ss') ,
+        .toFormat('F') ,
         message: userMessage,
         status: 'sent'
       };
@@ -49,7 +48,7 @@ createApp({
       const newResponse = {
         date: DateTime.now()
         .setLocale('it')
-        .toFormat('dd/MM/yyyy hh:mm:ss') ,
+        .toFormat('F') ,
         message: 'Va bene!',
         status: 'received'
       };
@@ -65,6 +64,11 @@ createApp({
     // per sistema di ricerca
     visibleContacts(){
       return this.contacts.filter(contact => contact.visible)
+    },
+
+    searchContact(){
+      return this.contacts.filter(contact => 
+      contact.name.toLowerCase().includes(this.chatSearch.toLowerCase()));
     }
   },
 
@@ -74,9 +78,6 @@ createApp({
   this.activeChat = this.contacts[0];
   },
 
-  mounted(){
-    this.printData();
-    console.log(printData());
-  }
+
 
 }).mount('#app')
