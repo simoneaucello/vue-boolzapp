@@ -71,8 +71,9 @@
           <div class="scroll flexed column">  
 
           <div 
-          v-for="(contact, contactId) in contacts"
-          @click="activeChat = contactId"
+          v-for="contact in visibleContacts"
+          :class="{'active' : contact === activeChat} "
+          @click="activeChat = contact"
           class="contact-box flexed"
           >
             <div class="avatar">
@@ -101,12 +102,11 @@
 
           <div class="top-r-bar flexed">
             <div class="avatar">
-              <img :src="contacts[activeChat].avatar" alt="2">
+              <img :src="activeChat.avatar" alt="2">
               </div>
               <div class="text-card">
-              <h4>{{contacts[activeChat].name}}</h4>
-              <p>Ultimo accesso oggi alle {{contacts[activeChat].messages[contacts[activeChat].messages.length
-                -1].date}}</p>
+              <h4>{{activeChat.name}}</h4>
+              <p>Ultimo accesso oggi alle {{getLastDate(activeChat)}} </p>
               </div>
               <div class="action">
                 <i class="fa-solid fa-magnifying-glass"></i>  
@@ -123,10 +123,11 @@
 
             <div class="message-box">
               <div 
-              v-for="msgItem in contacts[activeChat].messages"
-              :class="(msgItem.status === 'sent' ? 'sent' : 'received')"
+              v-for="message in activeChat.messages"
+              :class="message.status"
               >
-                  <p>{{msgItem.message}} </p>
+                  <p>{{message.message}} </p>
+                 
                   <div class="opt flexed column between">
                       <i class="fa-solid fa-chevron-down"></i>
                       <div class="opt-chat">
@@ -134,7 +135,7 @@
                           <div>Cancella messaggio</div>
                       </div> 
                       <div>
-                        <p>{{msgItem.date}}</p>
+                        <p>{{message.date}}</p>
                         </div>
                   </div> 
 
@@ -152,7 +153,11 @@
                   <i class="fa-regular fa-face-smile"></i>
               </div>
               <div class="input-message">
-                  <input type="text" placeholder="Scrivi un messaggio">
+                  <input 
+                  v-model.trim="userMessage"
+                  @keyup.enter="sendMessage(userMessage)"
+                  type="text" 
+                  placeholder="Scrivi un messaggio">
               </div>
               <div class="rec">
                   <i class="fa-solid fa-microphone"></i>                        
