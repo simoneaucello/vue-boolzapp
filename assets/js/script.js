@@ -12,6 +12,18 @@ createApp({
       activeChat: {},
       userMessage: '',
       chatSearch: '',
+      replies: [
+        'Wow!',
+        'Fantastico!',
+        'Che spettacolo!',
+        'Meraviglioso!',
+        'Incredibile!',
+        'Che sorpresa!',
+        'Eccezionale!',
+        'Straordinario!',
+        'Stupendo!',
+        'Bellissimo!',
+      ],
     }
   },
 
@@ -38,22 +50,25 @@ createApp({
       };
 
       this.activeChat.messages.push(newMsg);
+      this.autoScroll();
       this.userMessage = '';
+      
 
-      setTimeout(this.respMessage, 1000);
+      setTimeout(this.replyMessage, 1000);
     
       },
 
-    respMessage(){
+    replyMessage(){
       const newResponse = {
         date: DateTime.now()
         .setLocale('it')
         .toFormat('F') ,
-        message: 'Va bene!',
+        message: `${this.randomReply()}`,
         status: 'received'
       };
 
       this.activeChat.messages.push(newResponse);
+      this.autoScroll();
     },
 
     eraseMsg(index) {
@@ -64,7 +79,17 @@ createApp({
       const opt = document.querySelectorAll('.opt-chat');
 
       opt[index].classList.toggle('hide')
-    }
+    },
+
+    randomReply() {
+      const randomNumber = Math.floor(Math.random() * this.replies.length);
+      return this.replies[randomNumber];
+    },
+
+    autoScroll() {
+      const msgBox = document.querySelector('.message-box')
+      msgBox.scrollTop = msgBox.scrollHeight;
+    },
 
 
   },
@@ -93,3 +118,4 @@ createApp({
 
 
 }).mount('#app')
+

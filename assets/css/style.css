@@ -17,6 +17,20 @@ body{
   margin-left: 16px;
 }
 
+#myButton {
+  padding: 10px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  background-color: #464646;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+#myButton:hover {
+  background-color: #099688;
+}
+
 .wrapper{
   background:linear-gradient(#099688 10%, #D6DBD8 10%);
   width: 100%;
@@ -293,6 +307,7 @@ body{
   box-shadow: 1px 1px 5px 2px #C8CAC6;
   border-radius: 5px;
   padding: 10px;
+  display: block;
   
 }
 
